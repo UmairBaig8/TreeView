@@ -1,0 +1,121 @@
+<!-- <div class="tree-container">
+  <div class="level active">
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+  </div>
+
+  <div class="level active">
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="level">
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+        <i class="fas fa-greater-than"></i>
+      </label>
+    </div>
+    <div class="node">
+      <input id="Ultimatix" type="checkbox" value="Ultimatix" />
+      <label for="Ultimatix">
+        <span>OU</span>
+        <span>Ultimaitx</span>
+      </label>
+    </div>
+  </div>
+</div> -->
+
+<div class="tree-container">
+  <ng-container>
+    <div *ngFor="let item of treeData">
+      <div class="level">
+        <div class="node">
+          <input id="item.id" type="checkbox" value="Ultimatix" />
+          <label for="item.id">
+            <span>{{ item.type }}</span>
+            <span>{{ item.name }}</span>
+            <i class="fa fa-greater-than"></i>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
