@@ -104,9 +104,37 @@
 </div> -->
 
 <div class="tree-container">
-  <ng-container *ngFor="let bars of barStack">
-    <div *ngFor="let bar of bars">
+  <ng-container>
+    <div *ngFor="let bar of barStack[barStack.length - 3]">
       <div class="level active">
+        <div class="node" (click)="addBar(bar.childs)">
+          <input id="bar.id" type="checkbox" value="Ultimatix" />
+          <label for="bar.id">
+            <span>{{ bar.type }}</span>
+            <span>{{ bar.name }}</span>
+            <i *ngIf="bar.isParent" class="fa fa-greater-than"></i>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div *ngFor="let bar of barStack[barStack.length - 2]">
+      <div class="level active">
+        <div class="node" (click)="addBar(bar.childs)">
+          <input id="bar.id" type="checkbox" value="Ultimatix" />
+          <label for="bar.id">
+            <span>{{ bar.type }}</span>
+            <span>{{ bar.name }}</span>
+            <i *ngIf="bar.isParent" class="fa fa-greater-than"></i>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container>
+    <div *ngFor="let bar of barStack[barStack.length - 1]">
+      <div class="level">
         <div class="node" (click)="addBar(bar.childs)">
           <input id="bar.id" type="checkbox" value="Ultimatix" />
           <label for="bar.id">
