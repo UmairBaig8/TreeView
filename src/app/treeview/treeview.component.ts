@@ -4,13 +4,10 @@ interface ITree {
   id: string;
   type: string;
   name: string;
+  isParent?: boolean;
+  isSelected?: boolean;
   childs?: ITree[];
   search?(id: string): ITree;
-}
-
-interface IStack extends ITree {
-  isParent: boolean;
-  isSelected: boolean;
 }
 
 class Tree implements ITree {
@@ -28,7 +25,6 @@ class Tree implements ITree {
       }
     }
   }
-  constructor() {}
 }
 
 @Component({
