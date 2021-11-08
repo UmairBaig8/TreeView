@@ -1,6 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
+interface ITree {
+  id: string;
+  type: string;
+  name: string;
+  childs?: ITree[];
+  search?(id: string): ITree;
+}
 
+class Tree implements ITree {
+  id: string;
+  type: string;
+  name: string;
+  childs?: Tree[];
+  search?(id: string): Tree {
+    throw new Error('Method not implemented.');
+  }
+}
 
 @Component({
   selector: 'app-treeview',
@@ -8,12 +24,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./treeview.component.scss'],
 })
 export class TreeviewComponent implements OnInit {
-  treeData: {
-    id: string;
-    type: string;
-    name: string;
-    childs: { id: string; type: string; name: string }[];
-  }[];
+  treeData: ITree[];
 
   constructor() {
     this.treeData = [
@@ -30,6 +41,8 @@ export class TreeviewComponent implements OnInit {
         ],
       },
     ];
+
+    console.log(typeof this.treeData);
   }
 
   ngOnInit(): void {}
