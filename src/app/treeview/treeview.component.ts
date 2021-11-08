@@ -8,6 +8,11 @@ interface ITree {
   search?(id: string): ITree;
 }
 
+interface IStack extends ITree {
+  isParent: boolean;
+  isSelected: boolean;
+}
+
 class Tree implements ITree {
   id: string;
   type: string;
