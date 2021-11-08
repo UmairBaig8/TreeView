@@ -14,8 +14,16 @@ class Tree implements ITree {
   name: string;
   childs?: Tree[];
   search?(id: string): Tree {
-    throw new Error('Method not implemented.');
+    if (this.id === id) {
+      return this;
+    }
+    if (this.childs) {
+      for (var t of this.childs) {
+        return Object.assign(new Tree(), t).search(id);
+      }
+    }
   }
+  constructor() {}
 }
 
 @Component({
@@ -24,23 +32,34 @@ class Tree implements ITree {
   styleUrls: ['./treeview.component.scss'],
 })
 export class TreeviewComponent implements OnInit {
-  private stack: any;
-  private treeData: Tree;
+  private treeData: Array<Tree>;
 
   constructor() {
-    // this.treeData = {
-    //   id: 'ultimatix',
-    //   type: 'OU',
-    //   name: 'Ultimatix',
-    //   childs: [
-    //     {
-    //       id: 'compliance',
-    //       type: 'BU',
-    //       name: 'Compliance',
-    //     },
-    //   ],
-    // };
-    // console.log(typeof this.treeData);
+    this.treeData = [
+      {
+        id: 'ultimatix',
+        type: 'OU',
+        name: 'Ultimatix',
+        childs: [
+          {
+            id: 'compliance',
+            type: 'BU',
+            name: 'Compliance',
+            childs: [
+              {
+                id: 'A0001',
+                type: 'AP',
+                name: 'A0001',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    var t = new Tree();
+    t = Object.assign(new Tree(), this.treeData[0]);
+    console.log(t instanceof Tree);
+    console.log(t.search('A0001'));
   }
 
   ngOnInit(): void {}
