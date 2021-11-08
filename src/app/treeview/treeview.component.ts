@@ -24,25 +24,23 @@ class Tree implements ITree {
   styleUrls: ['./treeview.component.scss'],
 })
 export class TreeviewComponent implements OnInit {
-  treeData: ITree[];
+  private stack: any;
+  private treeData: Tree;
 
   constructor() {
-    this.treeData = [
-      {
-        id: 'ultimatix',
-        type: 'OU',
-        name: 'Ultimatix',
-        childs: [
-          {
-            id: 'compliance',
-            type: 'BU',
-            name: 'Compliance',
-          },
-        ],
-      },
-    ];
-
-    console.log(typeof this.treeData);
+    // this.treeData = {
+    //   id: 'ultimatix',
+    //   type: 'OU',
+    //   name: 'Ultimatix',
+    //   childs: [
+    //     {
+    //       id: 'compliance',
+    //       type: 'BU',
+    //       name: 'Compliance',
+    //     },
+    //   ],
+    // };
+    // console.log(typeof this.treeData);
   }
 
   ngOnInit(): void {}
