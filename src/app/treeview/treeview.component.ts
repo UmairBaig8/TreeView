@@ -58,73 +58,147 @@ export class TreeviewComponent implements OnInit {
   public barStack: Array<StackBar> = [];
 
   constructor() {
+    // this.treeData = [
+    //   {
+    //     id: 'ultimatix',
+    //     type: 'OU',
+    //     name: 'Ultimatix',
+    //     isParent: true,
+    //     childs: [
+    //       {
+    //         id: 'compliance',
+    //         type: 'BU',
+    //         name: 'Compliance',
+    //         isParent: true,
+    //         childs: [
+    //           {
+    //             id: 'A0001',
+    //             type: 'AP',
+    //             name: 'A0001',
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         id: 'finance',
+    //         type: 'BU',
+    //         name: 'Finance',
+    //         isParent: true,
+    //         childs: [
+    //           {
+    //             id: 'A0002',
+    //             type: 'AP',
+    //             name: 'A0002',
+    //           },
+    //           {
+    //             id: 'A0003',
+    //             type: 'AP',
+    //             name: 'A0003',
+    //           },
+    //           {
+    //             id: 'A0004',
+    //             type: 'AP',
+    //             name: 'A0004',
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         id: 'prime',
+    //         type: 'BU',
+    //         name: 'Prime',
+    //         isParent: true,
+    //         childs: [
+    //           {
+    //             id: 'A0005',
+    //             type: 'AP',
+    //             name: 'A0005',
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     id: 'fresco',
+    //     type: 'OU',
+    //     name: 'Fresco',
+    //     isParent: false,
+    //   },
+    // ];
+
     this.treeData = [
       {
-        id: 'ultimatix',
+        id: 'pnq',
         type: 'OU',
-        name: 'Ultimatix',
-        isParent: true,
+        name: 'Pune',
         childs: [
           {
-            id: 'compliance',
-            type: 'BU',
-            name: 'Compliance',
-            isParent: true,
+            id: 'cz',
+            type: 'OU',
+            name: 'CommerZone',
             childs: [
               {
-                id: 'A0001',
-                type: 'AP',
-                name: 'A0001',
-              },
-            ],
-          },
-          {
-            id: 'finance',
-            type: 'BU',
-            name: 'Finance',
-            isParent: true,
-            childs: [
-              {
-                id: 'A0002',
-                type: 'AP',
-                name: 'A0002',
-              },
-              {
-                id: 'A0003',
-                type: 'AP',
-                name: 'A0003',
-              },
-              {
-                id: 'A0004',
-                type: 'AP',
-                name: 'A0004',
-              },
-            ],
-          },
-          {
-            id: 'prime',
-            type: 'BU',
-            name: 'Prime',
-            isParent: true,
-            childs: [
-              {
-                id: 'A0005',
-                type: 'AP',
-                name: 'A0005',
+                id: 'digitate',
+                type: 'BU',
+                name: 'Digitate',
+                childs: [
+                  {
+                    id: 'windows',
+                    type: 'NG',
+                    name: 'Windows',
+                    childs: [
+                      {
+                        id: '10.136.113.177',
+                        type: 'NO',
+                        name: '10.136.113.177',
+                        childs: [
+                          {
+                            id: 'MSSQL',
+                            type: 'NO',
+                            name: 'MSSQL2014',
+                          },
+                        ],
+                      },
+                      {
+                        id: '10.136.113.178',
+                        type: 'NO',
+                        name: '10.136.113.178',
+                        childs: [
+                          {
+                            id: 'MSSQL',
+                            type: 'NO',
+                            name: 'MSSQL2016',
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    id: 'linux',
+                    type: 'NG',
+                    name: 'Linux',
+                    childs: [
+                      {
+                        id: '10.136.112.16',
+                        type: 'NO',
+                        name: '10.136.112.16',
+                        childs: [
+                          {
+                            id: 'MongoDB',
+                            type: 'NO',
+                            name: 'MongoDB',
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
               },
             ],
           },
         ],
       },
-      {
-        id: 'fresco',
-        type: 'OU',
-        name: 'Fresco',
-        isParent: false,
-      },
     ];
+
     this.barStack.push(new StackBar(this.stackLevel++, this.treeData, true));
-    console.log(typeof this.barStack[0]);
   }
 
   public addBar(bar: Tree): void {

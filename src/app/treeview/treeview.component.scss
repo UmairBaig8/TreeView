@@ -10,22 +10,27 @@
   //border: 1px dotted red;
   .active {
     width: 3em !important;
-    .node {
-      span:nth-child(2),
-      i {
-        display: none;
-      }
-    }
   }
   .level {
     width: 15em;
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
+    transition: background-color 2s ease-in;
+    overflow: hidden;
+    border: 1px solid red;
+    &:hover {
+      background: #ddd;
+    }
+    &:focus {
+      background: #ddd;
+    }
     .node {
       display: inline-block;
       padding: 0.5em;
       width: 100%;
       position: relative;
+      cursor: pointer;
+
       label {
         span:first-child {
           height: 1.5em;
@@ -38,8 +43,15 @@
           color: #16aeab;
           border: 1px solid #16aeab;
         }
+        .selected {
+          background: #16aeab;
+          color: #fff;
+          font-weight: bold;
+        }
         span:nth-child(2) {
-          margin: 0.2em;
+          margin: 0 0.3em;
+          font-size: 1.5em;
+          font-weight: 500;
         }
         i {
           position: absolute;
