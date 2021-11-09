@@ -134,7 +134,7 @@
   </ng-container> -->
   <ng-container>
     <div>
-      <div class="level" *ngIf="barStack[barStack.length - 2]">
+      <div class="level" *ngIf="vbarStack.length - 2]">
         <div
           class="node"
           *ngFor="let node of barStack[barStack.length - 2].nodes"
@@ -151,7 +151,7 @@
   </ng-container>
   <ng-container>
     <div>
-      <div class="level">
+      <div class="level" *ngIf="barStack[0]">
         <div class="node" *ngFor="let node of barStack[0].nodes">
           <input id="node.id" type="checkbox" value="Ultimatix" />
           <label for="node.id" (click)="addBar(node)">
