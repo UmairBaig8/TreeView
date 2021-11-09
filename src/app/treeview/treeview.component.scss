@@ -5,9 +5,10 @@
   height: 60%;
   display: flex;
   margin: 1em;
-  width: 25%;
-  //overflow: hidden;
-  //border: 1px dotted red;
+  padding: 0;
+  overflow: hidden;
+  //border: 1px dotted #ccc;
+  box-shadow: 0 0 15px rgba(33, 33, 33, 0.1);
   .active {
     width: 3em !important;
   }
@@ -16,20 +17,23 @@
     border: 1px solid #ddd;
     border-right: 2px solid #ddd;
     border-left: 2px solid #ddd;
-    transition: background-color 2s ease-in;
-    //transition: box-shadow 0.3s;
+    //transition: background-color 2s ease-in;
+    transition: box-shadow 0.3s;
     overflow: hidden;
-    margin-right: 0.1em;
+    //margin-right: 0.1em;
     &:hover {
       //background: #ddd;
-      //box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+      box-shadow: 0 0 5px rgba(33, 33, 33, 0.1);
     }
     & *:hover {
       cursor: pointer;
-      background: #ddd;
+      //background: #ddd;
     }
     &:focus {
       background: #ddd;
+    }
+    .m1 {
+      margin-right: 0.1em;
     }
     .node {
       display: inline-block;

@@ -155,10 +155,10 @@
       <div class="level active" *ngIf="barStack[barStack.length - 2]">
         <div
           class="node"
-          *ngFor="let node of barStack[barStack.length - 2].nodes"
+          *ngFor="let node of barStack[barStack.length - 1].nodes"
         >
           <input id="node.id" type="checkbox" value="node.id" />
-          <label for="node.id" (click)="removeNBars(1)">
+          <label for="node.id" (click)="removeNBars(2)">
             <span>{{ node.type }}</span>
             <!-- <span>{{ node.name }}</span>
             <i *ngIf="node.isParent" class="fa fa-greater-than"></i> -->
