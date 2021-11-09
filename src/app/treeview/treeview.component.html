@@ -104,10 +104,10 @@
 </div> -->
 
 <div class="tree-container">
-  <ng-container>
+  <!-- <ng-container>
     <div *ngFor="let bar of barStack[barStack.length - 3]">
       <div class="level active">
-        <div class="node" (click)="addBar(bar.childs)">
+        <div class="node" (click)="removeNBars(2)">
           <input id="bar.id" type="checkbox" value="Ultimatix" />
           <label for="bar.id">
             <span>{{ bar.type }}</span>
@@ -121,7 +121,7 @@
   <ng-container>
     <div *ngFor="let bar of barStack[barStack.length - 2]">
       <div class="level active">
-        <div class="node" (click)="addBar(bar.childs)">
+        <div class="node" (click)="removeNBars(1)">
           <input id="bar.id" type="checkbox" value="Ultimatix" />
           <label for="bar.id">
             <span>{{ bar.type }}</span>
@@ -131,16 +131,33 @@
         </div>
       </div>
     </div>
+  </ng-container> -->
+  <ng-container>
+    <div>
+      <div class="level" *ngIf="barStack[barStack.length - 2]">
+        <div
+          class="node"
+          *ngFor="let node of barStack[barStack.length - 2].nodes"
+        >
+          <input id="node.id" type="checkbox" value="Ultimatix" />
+          <label for="node.id" (click)="addBar(node)">
+            <span>{{ node.type }}</span>
+            <span>{{ node.name }}</span>
+            <i *ngIf="node.isParent" class="fa fa-greater-than"></i>
+          </label>
+        </div>
+      </div>
+    </div>
   </ng-container>
   <ng-container>
-    <div *ngFor="let bar of barStack[barStack.length - 1]">
+    <div>
       <div class="level">
-        <div class="node" (click)="addBar(bar.childs)">
-          <input id="bar.id" type="checkbox" value="Ultimatix" />
-          <label for="bar.id">
-            <span>{{ bar.type }}</span>
-            <span>{{ bar.name }}</span>
-            <i *ngIf="bar.isParent" class="fa fa-greater-than"></i>
+        <div class="node" *ngFor="let node of barStack[0].nodes">
+          <input id="node.id" type="checkbox" value="Ultimatix" />
+          <label for="node.id" (click)="addBar(node)">
+            <span>{{ node.type }}</span>
+            <span>{{ node.name }}</span>
+            <i *ngIf="node.isParent" class="fa fa-greater-than"></i>
           </label>
         </div>
       </div>

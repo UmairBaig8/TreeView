@@ -29,6 +29,24 @@ class Tree implements ITree {
   }
 }
 
+interface IStackBar {
+  level: number;
+  nodes: Tree[];
+  isActive: boolean;
+}
+
+class StackBar implements IStackBar {
+  level: number;
+  nodes: Tree[];
+  isActive: boolean;
+
+  constructor(l: number, n: Tree[], a: boolean) {
+    this.level = l;
+    this.nodes = n;
+    this.isActive = a;
+  }
+}
+
 @Component({
   selector: 'app-treeview',
   templateUrl: './treeview.component.html',
@@ -36,7 +54,8 @@ class Tree implements ITree {
 })
 export class TreeviewComponent implements OnInit {
   private treeData: Array<Tree> = [];
-  public barStack: Array<Array<Tree>> = [];
+  private stackLevel: number = 0;
+  public barStack: Array<StackBar> = [];
 
   constructor() {
     this.treeData = [
@@ -59,17 +78,66 @@ export class TreeviewComponent implements OnInit {
               },
             ],
           },
+          {
+            id: 'finance',
+            type: 'BU',
+            name: 'Finance',
+            isParent: true,
+            childs: [
+              {
+                id: 'A0002',
+                type: 'AP',
+                name: 'A0002',
+              },
+              {
+                id: 'A0003',
+                type: 'AP',
+                name: 'A0003',
+              },
+              {
+                id: 'A0004',
+                type: 'AP',
+                name: 'A0004',
+              },
+            ],
+          },
+          {
+            id: 'prime',
+            type: 'BU',
+            name: 'Prime',
+            isParent: true,
+            childs: [
+              {
+                id: 'A0005',
+                type: 'AP',
+                name: 'A0005',
+              },
+            ],
+          },
         ],
       },
+      {
+        id: 'fresco',
+        type: 'OU',
+        name: 'Fresco',
+        isParent: false,
+      },
     ];
-    this.barStack.push(this.treeData);
+    this.barStack.push(new StackBar(this.stackLevel++, this.treeData, true));
+    console.log(typeof this.barStack[0]);
   }
 
-  public addBar(tmp: Tree[]): void {
-    this.barStack.push(tmp);
+  public addBar(bar: Tree): void {
+    console.log(bar);
+    if (bar.childs)
+      this.barStack.push(new StackBar(this.stackLevel++, bar.childs, true));
+    console.log(this.barStack);
+    console.log(this.barStack[this.barStack.length - 1]);
   }
-  public removeBar(): Tree[] {
-    return this.barStack.pop();
+  public removeNBars(n: number): void {
+    for (let step = 0; step < n; step++) {
+      this.barStack.pop();
+    }
   }
 
   ngOnInit(): void {}
