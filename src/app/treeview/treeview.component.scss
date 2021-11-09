@@ -13,12 +13,19 @@
   }
   .level {
     width: 15em;
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
+    border: 1px solid #ddd;
+    border-right: 2px solid #ddd;
+    border-left: 2px solid #ddd;
     transition: background-color 2s ease-in;
+    //transition: box-shadow 0.3s;
     overflow: hidden;
-    border: 1px solid red;
+    margin-right: 0.1em;
     &:hover {
+      //background: #ddd;
+      //box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    }
+    & *:hover {
+      cursor: pointer;
       background: #ddd;
     }
     &:focus {
@@ -29,7 +36,6 @@
       padding: 0.5em;
       width: 100%;
       position: relative;
-      cursor: pointer;
 
       label {
         span:first-child {
@@ -41,7 +47,8 @@
           justify-content: center;
           align-items: center;
           color: #16aeab;
-          border: 1px solid #16aeab;
+          border: 2px solid #16aeab;
+          font-weight: 500;
         }
         .selected {
           background: #16aeab;
@@ -57,7 +64,7 @@
           position: absolute;
           right: 20px;
           color: #16aeab;
-          padding: 0.3em;
+          padding: 0.5em;
         }
         display: flex;
         color: #16aeab;
