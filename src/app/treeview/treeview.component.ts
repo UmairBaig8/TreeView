@@ -210,7 +210,10 @@ export class TreeviewComponent implements OnInit {
   }
   public removeNBars(n: number): void {
     for (let step = 0; step < n; step++) {
-      this.barStack.pop();
+      if(this.barStack.length != 1){
+        this.barStack.pop();
+      }
+      
     }
   }
 
